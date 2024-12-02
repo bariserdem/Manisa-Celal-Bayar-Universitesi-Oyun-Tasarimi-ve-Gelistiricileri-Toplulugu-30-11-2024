@@ -6,19 +6,21 @@ public class CannonController : MonoBehaviour
 {
     public Camera gameCamera;
     public GameObject cannonBase;
-    public GameObject bulletPrefab;
     public float bulletForce;
-    
+
+    public GameObject bulletPrefab;
+
+    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    
+    // Update is called once per frame
     void Update()
     {
-        Vector2 mousePostion = Input.mousePosition;
-        Vector3 worldPosition = gameCamera.ScreenToWorldPoint(new Vector3(mousePostion.x,mousePostion.y,transform.position.z - gameCamera.transform.position.z));
+        Vector2 mousePosition = Input.mousePosition;
+        Vector3 worldPosition = gameCamera.ScreenToWorldPoint(new Vector3(mousePosition.x,mousePosition.y,transform.position.z - gameCamera.transform.position.z));
 
         if(worldPosition.x > cannonBase.transform.position.x + 1){
             cannonBase.transform.localEulerAngles = new Vector3(
@@ -35,4 +37,5 @@ public class CannonController : MonoBehaviour
         }
 
     }
+
 }
